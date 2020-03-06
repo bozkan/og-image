@@ -123,9 +123,6 @@ function getCss(theme: string, fontSize: string) {
         font-family: 'Inter', sans-serif;
         padding-bottom: 50px;
     }
-    .logo {
-        margin-top: 50px;
-    }
     .heading {
         font-family: 'Inter', sans-serif;
         font-weight: bold;
@@ -147,6 +144,9 @@ export function getHtml(parsedReq: ParsedRequest) {
     </style>
     <body>
         <div>
+            <div class="logo-wrapper">
+                <img src="https://img.incubatorlist.com/cover_wide.png" height="240">
+            </div>
             <div class="heading">${emojify(
                 md ? marked(text) : sanitizeHtml(text)
             )}
@@ -155,9 +155,6 @@ export function getHtml(parsedReq: ParsedRequest) {
             <div class="description">${sanitizeHtml(description)}</div>
             <div class="terms">${sanitizeHtml(terms)}</div>
             <div class="status-div">Deadline: <span class="status">${sanitizeHtml(status)}</span></div>
-            <div class="logo">
-                <img src="https://img.incubatorlist.com/cover_wide.png" height="100">
-            </div>
         </div>
     </body>
 </html>`;
