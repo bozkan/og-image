@@ -1,5 +1,9 @@
 {
   "name": "og-image",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bozkan/og-image.git"
+  },
   "version": "1.0.0",
   "description": "Generate an open graph image for twitter/facebook/etc",
   "engines": {
