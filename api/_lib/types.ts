@@ -10,4 +10,8 @@ export interface ParsedRequest {
     images: string[];
     widths: string[];
     heights: string[];
+    description: string;
+    city: string;
+    status: string;
+    terms: string;
 }

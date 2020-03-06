@@ -90,18 +90,41 @@ function getCss(theme: string, fontSize: string) {
         margin: 0 .05em 0 .1em;
         vertical-align: -0.1em;
     }
-    
+
+    .city {
+        font-size: 80px;
+        color: #535c68;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 100px;
+    }
+
+    .description {
+        font-size: 80px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .status-div {
+        font-size: 64px;
+        font-family: 'Inter', sans-serif;
+    }
+    .status {
+        color: #2ecc71;
+    }
+    .terms {
+        font-size: 80px;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 50px;
+    }
     .heading {
         font-family: 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
-        line-height: 1.8;
     }`;
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-    const { text, theme, md, fontSize, city} = parsedReq;
+    const { text, theme, md, fontSize, city, status, terms} = parsedReq;
     return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -112,13 +135,15 @@ export function getHtml(parsedReq: ParsedRequest) {
     </style>
     <body>
         <div>
-            <div class="spacer">
-            "${sanitizeHtml(city)}"
+
             <div class="spacer">
             <div class="heading">${emojify(
                 md ? marked(text) : sanitizeHtml(text)
             )}
             </div>
+            <div class="city">${sanitizeHtml(city)}</div>
+            <div class="terms">${sanitizeHtml(terms)}</div>
+            <div class="status-div">Deadline: <span class="status">${sanitizeHtml(status)}</span></div>
         </div>
     </body>
 </html>`;

@@ -184,6 +184,10 @@ interface AppState extends ParsedRequest {
     widths: string[];
     heights: string[];
     overrideUrl: URL | null;
+    description: string;
+    city: string;
+    status: string;
+    terms: string;
 }
 
 type SetState = (state: Partial<AppState>) => void;
@@ -214,6 +218,10 @@ const App = (_: any, state: AppState, setState: SetState) => {
         loading = true,
         selectedImageIndex = 0,
         overrideUrl = null,
+        description = '',
+        city = '',
+        status = '',
+        terms = '',
     } = state;
     const mdValue = md ? '1' : '0';
     const imageOptions = theme === 'light' ? imageLightOptions : imageDarkOptions;
@@ -231,6 +239,10 @@ const App = (_: any, state: AppState, setState: SetState) => {
     for (let height of heights) {
         url.searchParams.append('heights', height);
     }
+    url.searchParams.append('description', description);
+    url.searchParams.append('city', city);
+    url.searchParams.append('status', status);
+    url.searchParams.append('terms', terms);
 
     return H('div',
         { className: 'split' },
