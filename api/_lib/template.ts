@@ -12,7 +12,7 @@ const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString('b
 const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString('base64');
 
 function getCss(theme: string, fontSize: string) {
-    let background = 'white';
+    let background = '#ecf0f1';
     let foreground = 'black';
 
     if (theme === 'dark') {
@@ -44,11 +44,14 @@ function getCss(theme: string, fontSize: string) {
     body {
         background: ${background};
         background-size: 100px 100px;
-        height: 100vh;
+        padding-left: 50px;
+        margin-right: 50px;
         display: flex;
         text-align: center;
         align-items: center;
         justify-content: center;
+        height: 100vh;
+
     }
 
     code {
@@ -81,7 +84,7 @@ function getCss(theme: string, fontSize: string) {
     }
 
     .spacer {
-        margin: 150px;
+        margin: 100px;
     }
 
     .emoji {
@@ -95,12 +98,14 @@ function getCss(theme: string, fontSize: string) {
         font-size: 80px;
         color: #535c68;
         font-family: 'Inter', sans-serif;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
 
     .description {
-        font-size: 80px;
+        margin-top: -50px;
+        font-size: 64px;
         font-family: 'Inter', sans-serif;
+        margin-bottom: 100px;
     }
 
     .status-div {
@@ -109,14 +114,21 @@ function getCss(theme: string, fontSize: string) {
     }
     .status {
         color: #2ecc71;
+        font-weight: bold;
     }
     .terms {
-        font-size: 80px;
+        color: #2f3640;
+        font-weight: bold;
+        font-size: 64px;
         font-family: 'Inter', sans-serif;
-        margin-bottom: 50px;
+        padding-bottom: 50px;
+    }
+    .logo {
+        margin-top: 50px;
     }
     .heading {
         font-family: 'Inter', sans-serif;
+        font-weight: bold;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
@@ -135,16 +147,17 @@ export function getHtml(parsedReq: ParsedRequest) {
     </style>
     <body>
         <div>
-
-            <div class="spacer">
             <div class="heading">${emojify(
                 md ? marked(text) : sanitizeHtml(text)
             )}
             </div>
-            <div class="description">${sanitizeHtml(description)}</div>
             <div class="city">${sanitizeHtml(city)}</div>
+            <div class="description">${sanitizeHtml(description)}</div>
             <div class="terms">${sanitizeHtml(terms)}</div>
             <div class="status-div">Deadline: <span class="status">${sanitizeHtml(status)}</span></div>
+            <div class="logo">
+                <img src="https://img.incubatorlist.com/cover_wide.png" height="100">
+            </div>
         </div>
     </body>
 </html>`;
