@@ -124,7 +124,7 @@ function getCss(theme: string, fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-    const { text, theme, md, fontSize, city, status, terms} = parsedReq;
+    const { text, theme, md, fontSize, description, city, status, terms} = parsedReq;
     return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -141,6 +141,7 @@ export function getHtml(parsedReq: ParsedRequest) {
                 md ? marked(text) : sanitizeHtml(text)
             )}
             </div>
+            <div class="description">${sanitizeHtml(description)}</div>
             <div class="city">${sanitizeHtml(city)}</div>
             <div class="terms">${sanitizeHtml(terms)}</div>
             <div class="status-div">Deadline: <span class="status">${sanitizeHtml(status)}</span></div>
