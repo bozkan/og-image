@@ -86,6 +86,12 @@ function getCss(theme: string, fontSize: string) {
     .spacer {
         margin: 100px;
     }
+    .spacer-m {
+        margin: 50px;
+    }
+    .spacer-sm {
+        margin: 20px;
+    }
 
     .emoji {
         height: 1em;
@@ -98,14 +104,11 @@ function getCss(theme: string, fontSize: string) {
         font-size: 80px;
         color: #535c68;
         font-family: 'Inter', sans-serif;
-        margin-bottom: 50px;
     }
 
     .description {
-        margin-top: -50px;
-        font-size: 64px;
+        font-size: 48px;
         font-family: 'Inter', sans-serif;
-        margin-bottom: 100px;
     }
 
     .status-div {
@@ -152,6 +155,7 @@ export function getHtml(parsedReq: ParsedRequest) {
             )}
             </div>
             <div class="city">${sanitizeHtml(city)}</div>
+            <div class="spacer-sm"></div>
             <div class="description">${sanitizeHtml(description)}</div>
             <div class="terms">${sanitizeHtml(terms)}</div>
             <div class="status-div">Deadline: <span class="status">${sanitizeHtml(status)}</span></div>
