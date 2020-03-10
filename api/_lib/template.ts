@@ -119,12 +119,14 @@ function getCss(theme: string, fontSize: string) {
         color: #2ecc71;
         font-weight: bold;
     }
-    .terms {
-        color: #2f3640;
-        font-weight: bold;
+    .terms-div {
         font-size: 64px;
         font-family: 'Inter', sans-serif;
         padding-bottom: 50px;
+        color: #2f3640;
+    }
+    .terms {
+        font-weight: bold;
     }
     .heading {
         font-family: 'Inter', sans-serif;
@@ -157,7 +159,7 @@ export function getHtml(parsedReq: ParsedRequest) {
             <div class="city">${sanitizeHtml(city)}</div>
             <div class="spacer-sm"></div>
             <div class="description">${sanitizeHtml(description)}</div>
-            <div class="terms">${sanitizeHtml(terms)}</div>
+            <div class="terms-div">Funding: <span class="terms">${sanitizeHtml(terms)}</span></div>
             <div class="status-div">Deadline: <span class="status">${sanitizeHtml(status)}</span></div>
         </div>
     </body>
