@@ -159,7 +159,7 @@ export function getHtml(parsedReq: ParsedRequest) {
             <div class="city">${sanitizeHtml(city)}</div>
             <div class="spacer-sm"></div>
             <div class="description">${sanitizeHtml(description)}</div>
-            <div class="terms-div">Funding: <span class="terms">${sanitizeHtml(terms)}</span></div>
+            <div class="terms-div">${terms ? "Funding: " : ""}<span class="terms">${sanitizeHtml(terms)}</span></div>
             <div class="status-div">Deadline: <span class="status">${sanitizeHtml(status)}</span></div>
         </div>
     </body>
